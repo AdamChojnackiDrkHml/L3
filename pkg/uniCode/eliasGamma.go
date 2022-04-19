@@ -43,6 +43,9 @@ func (eg *EliasGamma) countN() int {
 		if eg.reader.Reader_ReadBit() == byte(1) {
 			break
 		}
+		if !eg.reader.IsReading {
+			break
+		}
 		counter++
 	}
 

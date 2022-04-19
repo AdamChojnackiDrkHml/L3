@@ -11,10 +11,11 @@ import (
 )
 
 type Coder struct {
-	reader  *reader.Reader
-	writer  *writer.Writer
-	dict    *dictionary.Dictionary
-	uniCode unicode.UniCode
+	reader      *reader.Reader
+	writer      *writer.Writer
+	dict        *dictionary.Dictionary
+	uniCode     unicode.UniCode
+	unicodeType unicode.Coding
 }
 
 func Coder_createDefaultCoder(reader *reader.Reader, writer *writer.Writer) *Coder {
@@ -23,9 +24,10 @@ func Coder_createDefaultCoder(reader *reader.Reader, writer *writer.Writer) *Cod
 
 func Coder_createCoder(reader *reader.Reader, writer *writer.Writer, coding unicode.Coding) *Coder {
 	coder := &Coder{
-		reader: reader,
-		writer: writer,
-		dict:   dictionary.Dictionary_CreateDictionary()}
+		reader:      reader,
+		writer:      writer,
+		dict:        dictionary.Dictionary_CreateDictionary(),
+		unicodeType: coding}
 
 	switch coding {
 	case unicode.Gamma:
@@ -59,7 +61,7 @@ func (coder *Coder) code() {
 
 	c := make([]byte, 0)
 	c = append(c, first)
-
+	iteration := 0
 	for {
 		s, err := coder.reader.Reader_readByte()
 
@@ -67,37 +69,48 @@ func (coder *Coder) code() {
 			break
 		}
 
-		if coder.dict.Dictionary_IsContained(append(c, s)) {
+		if coder.dict.Dictionary_IsKeyContained(append(c, s)) {
 			c = append(c, s)
 			continue
 		}
 
 		codeInt := coder.dict.Dictionary_GetVal(c)
+		codeInt++
 		codeBits := coder.uniCode.CodeNumber(codeInt)
 		coder.writer.Writer_addBits(codeBits)
 
 		coder.dict.Dictionary_AddKey(append(c, s))
 
 		c = []byte{s}
+		iteration++
 
+		if iteration == 1447 {
+			fmt.Println("Dupa")
+		}
 	}
+	fmt.Println(iteration)
 	codeInt := coder.dict.Dictionary_GetVal(c)
+	codeInt++
 	codeBits := coder.uniCode.CodeNumber(codeInt)
 	coder.writer.Writer_addBits(codeBits)
 
 	coder.writer.Writer_Flush()
 }
 
-// func (coder *Coder) writeSize() {
-// 	size := coder.reader.ReadWholeFileGetSizeAndResetReader()
+func (coder *Coder) writeSize() {
+	size := coder.reader.ReadWholeFileGetSizeAndResetReader()
+	size++
+	codeBits := coder.uniCode.CodeNumber(int(size))
+	coder.writer.Writer_addBits(codeBits)
+}
 
-// 	coder.w = strconv.FormatInt(size, 10) + " "
-// 	coder.writeCode()
-// 	coder.w = ""
-// }
+func (coder *Coder) writeCoding() {
+	coder.writer.Writer_addBytes([]byte{byte(coder.unicodeType)})
+}
 
 func (coder *Coder) Coder_run() {
-	// coder.writeSize()
+	coder.writeCoding()
+	coder.writeSize()
 	coder.code()
 
 }

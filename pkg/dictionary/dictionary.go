@@ -1,32 +1,42 @@
 package dictionary
 
+import "github.com/vishalkuo/bimap"
+
 const AlphabetSize = 256
 
 type Dictionary struct {
-	dict map[string]int
+	dict bimap.BiMap
 }
 
 func Dictionary_CreateDictionary() *Dictionary {
 
-	d := &Dictionary{dict: make(map[string]int)}
+	d := &Dictionary{dict: *bimap.NewBiMap()}
 
 	for i := 0; i < AlphabetSize; i++ {
-		d.dict[string([]byte{byte(i)})] = i
+		d.dict.Insert(string([]byte{byte(i)}), i)
 	}
 
 	return d
 }
 
-func (d *Dictionary) Dictionary_IsContained(bytes []byte) bool {
-	_, ok := d.dict[string(bytes)]
+func (d *Dictionary) Dictionary_IsKeyContained(bytes []byte) bool {
+	return d.dict.Exists(string(bytes))
+}
 
-	return ok
+func (d *Dictionary) Dictionary_IsValueContained(val int) bool {
+	return d.dict.ExistsInverse(val)
 }
 
 func (d *Dictionary) Dictionary_AddKey(bytes []byte) {
-	d.dict[string(bytes)] = len(d.dict)
+	d.dict.Insert(string(bytes), d.dict.Size())
 }
 
 func (d *Dictionary) Dictionary_GetVal(bytes []byte) int {
-	return d.dict[string(bytes)]
+	res, _ := d.dict.Get(string(bytes))
+	return res.(int)
+}
+
+func (d *Dictionary) Dictionary_GetKey(val int) []byte {
+	res, _ := d.dict.GetInverse(val)
+	return []byte(res.(string))
 }

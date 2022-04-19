@@ -1,6 +1,7 @@
 package writer
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -9,6 +10,7 @@ type Writer struct {
 	file       *os.File
 	byteBuffer []byte
 	bitBuffer  []byte
+	written    int
 }
 
 func (writer *Writer) openOrCreateFile() {
@@ -16,6 +18,7 @@ func (writer *Writer) openOrCreateFile() {
 	if err != nil {
 		panic(err)
 	}
+	writer.written = 0
 	writer.file = file
 
 }
@@ -29,13 +32,16 @@ func Writer_createWriter(path string) *Writer {
 }
 
 func (w *Writer) write() {
-	_, err := w.file.Write(w.byteBuffer)
-
+	n, err := w.file.Write(w.byteBuffer)
+	f1, _ := w.file.Stat()
+	fmt.Println(f1.Size(), n, len(w.byteBuffer))
 	if err != nil {
 		panic(err)
 	}
 
-	w.byteBuffer = make([]byte, 0)
+	w.byteBuffer = w.byteBuffer[len(w.byteBuffer):]
+	w.written += len(w.byteBuffer)
+
 }
 
 func (writer *Writer) CloseFile() {
@@ -62,6 +68,15 @@ func (w *Writer) Writer_addBits(bits []byte) {
 
 }
 
+func (w *Writer) Writer_addBytes(bytes []byte) {
+
+	w.byteBuffer = append(w.byteBuffer, bytes...)
+
+	for len(w.byteBuffer) >= 256 {
+		w.write()
+	}
+}
+
 func getByteFromBits(bits []byte) byte {
 	acc := byte(0)
 
@@ -82,4 +97,16 @@ func (w *Writer) Writer_Flush() {
 	if len(w.byteBuffer) != 0 {
 		w.write()
 	}
+
+	fmt.Println(w.written)
+	f1, _ := w.file.Stat()
+	fmt.Println(f1.Size())
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+
+	return b
 }

@@ -171,9 +171,9 @@ func (reader *Reader) readByte() {
 	if err == io.EOF {
 		reader.closeFile()
 		reader.IsReading = false
+		reader.buffer = splitByteToBits(byte(0))
 		return
 	}
-	fmt.Println(oneByteSlice[0])
 	reader.buffer = splitByteToBits(oneByteSlice[0])
 }
 

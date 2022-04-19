@@ -26,12 +26,12 @@ func (eD *EliasDelta) CodeNumber(num int) []byte {
 
 func (ed *EliasDelta) DecodeNumber() int {
 	firstCounter := ed.countK()
-	readNBits := ed.getBitsOfNumber(firstCounter - 1)
-
+	readNBits := ed.reader.Reader_ReadNBits(firstCounter)
+	readNBits = append([]byte{1}, readNBits...)
 	N := getByteFromBits(readNBits)
 
-	readBits := ed.getBitsOfNumber(N - 1)
-	return getByteFromBits(readBits)
+	readBits := ed.reader.Reader_ReadNBits(N - 1)
+	return getByteFromBits(append([]byte{1}, readBits...))
 }
 
 func (ed *EliasDelta) countK() int {
