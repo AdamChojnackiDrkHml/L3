@@ -84,9 +84,6 @@ func (coder *Coder) code() {
 		c = []byte{s}
 		iteration++
 
-		if iteration == 1447 {
-			fmt.Println("Dupa")
-		}
 	}
 	fmt.Println(iteration)
 	codeInt := coder.dict.Dictionary_GetVal(c)

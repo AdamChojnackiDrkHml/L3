@@ -14,11 +14,11 @@ func main() {
 	var writerA *writer.Writer
 	fmt.Println(os.Args)
 	if len(os.Args) != 3 {
-		readerA = reader.Reader_createReader("../data/output/test")
-		writerA = writer.Writer_createReader("../data/outputOutput/test")
+		readerA = reader.Reader_createReader("data/output/test")
+		writerA = writer.Writer_createWriter("data/outputOutput/test")
 	} else {
 		readerA = reader.Reader_createReader(os.Args[1])
-		writerA = writer.Writer_createReader(os.Args[2])
+		writerA = writer.Writer_createWriter(os.Args[2])
 	}
 
 	decoder := decoder.Decoder_createDecoder(readerA, writerA)

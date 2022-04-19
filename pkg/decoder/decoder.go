@@ -64,15 +64,8 @@ func (decoder *Decoder) decode() {
 			decoder.writer.Writer_addBytes(append(prev_c, prev_c[0]))
 			size -= len(prev_c) + 1
 		}
-		// decoder.writer.Writer_addBytes(S)
-		// size -= len(S)
-		// C = S[0]
-		// decoder.dict.Dictionary_AddKey(append(decoder.dict.Dictionary_GetKey(pk), C))
 		prev_k = k
 		iterations++
-		if iterations == 1447 {
-			fmt.Println("dupa")
-		}
 	}
 	fmt.Println(iterations)
 

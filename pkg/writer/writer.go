@@ -1,7 +1,6 @@
 package writer
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -32,9 +31,9 @@ func Writer_createWriter(path string) *Writer {
 }
 
 func (w *Writer) write() {
-	n, err := w.file.Write(w.byteBuffer)
-	f1, _ := w.file.Stat()
-	fmt.Println(f1.Size(), n, len(w.byteBuffer))
+	_, err := w.file.Write(w.byteBuffer)
+	// f1, _ := w.file.Stat()
+	// fmt.Println(f1.Size(), n, len(w.byteBuffer))
 	if err != nil {
 		panic(err)
 	}
@@ -98,15 +97,7 @@ func (w *Writer) Writer_Flush() {
 		w.write()
 	}
 
-	fmt.Println(w.written)
-	f1, _ := w.file.Stat()
-	fmt.Println(f1.Size())
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-
-	return b
+	// fmt.Println(w.written)
+	// f1, _ := w.file.Stat()
+	// fmt.Println(f1.Size())
 }

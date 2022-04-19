@@ -9,7 +9,7 @@ buildD:
 	@go build -o build/decoder/decoder cmd/decoderMain/decoderMain.go
 
 runD:
-	@./build/decoder/decoder  $(IN) $(OUT)
+	@./build/decoder/decoder  $(IN) $(OUT) $(CODING)
 
 buildC: 
 	@go build -o build/coder/coder cmd/coderMain/coderMain.go

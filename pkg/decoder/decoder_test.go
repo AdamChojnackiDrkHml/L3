@@ -8,7 +8,7 @@ import (
 
 func TestDecode(t *testing.T) {
 	r := reader.Reader_createReader("/home/adam/Dokumenty/Github/L3/data/output/test")
-	w := writer.Writer_createWriter("/home/adam/Dokumenty/Github/L3/data/outputOutput/test")
+	w := writer.Writer_createWriter("/home/adam/Dokumenty/Github/L3/data/outputOutput/test.pdf")
 
 	d := Decoder_createDecoder(r, w)
 
