@@ -1,0 +1,14 @@
+#!/bin/bash
+
+make
+
+for f in data/input/*; do
+    Name=$(basename $f)
+    
+    ./build/coder/coder data/input/$Name data/output/test > data/results/${Name%.*}
+    ./build/decoder/decoder data/output/test data/outputOutput/$Name
+    echo "DIFF START:" >> data/results/${Name%.*}
+    diff data/input/$Name data/outputOutput/$Name >> data/results/${Name%.*}
+    echo "DIFF END" >> data/results/${Name%.*}
+
+done

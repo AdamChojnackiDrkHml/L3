@@ -1,0 +1,10 @@
+[./build/coder/coder data/input/SamplePDFFile_5mb.pdf data/output/test]
+1805460
+data/input/SamplePDFFile_5mb.pdf data/output/test 0
+Rozmiar Wejścia: 5195548
+Rozmiar Wyjścia: 7150657
+Stopień kompresji:  -37.630467469456555
+ENTROPIA:  7.435622053740952
+ENTROPIA:  6.086005819058083
+DIFF START:
+DIFF END

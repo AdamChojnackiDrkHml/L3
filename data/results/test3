@@ -1,0 +1,10 @@
+[./build/coder/coder data/input/test3.bin data/output/test]
+409470
+data/input/test3.bin data/output/test 0
+Rozmiar Wejścia: 1048576
+Rozmiar Wyjścia: 1511844
+Stopień kompresji:  -44.18067932128906
+ENTROPIA:  8
+ENTROPIA:  6.1422553901209636
+DIFF START:
+DIFF END

@@ -11,18 +11,23 @@ import (
 )
 
 func main() {
-	// fmt.Println(os.Getwd())
+	var input string
+	var output string
+	var coding unicode.Coding
 	var readerA *reader.Reader
 	var writerA *writer.Writer
-	var coding unicode.Coding
 	fmt.Println(os.Args)
-	if len(os.Args) != 4 {
-		readerA = reader.Reader_createReader("data/input/test")
-		writerA = writer.Writer_createWriter("data/output/test")
+	if len(os.Args) < 3 {
+		input = "data/input/test"
+		output = "data/output/test"
 		coding = unicode.Gamma
 	} else {
-		readerA = reader.Reader_createReader(os.Args[1])
-		writerA = writer.Writer_createWriter(os.Args[2])
+		if len(os.Args) < 4 {
+			os.Args = append(os.Args, "0")
+		}
+		input = os.Args[1]
+		output = os.Args[2]
+
 		codingNo, err := strconv.Atoi(os.Args[3])
 
 		if err != nil {
@@ -51,6 +56,9 @@ func main() {
 
 	}
 
+	readerA = reader.Reader_createReader(input)
+	writerA = writer.Writer_createWriter(output)
+
 	coder := coder.Coder_createCoder(readerA, writerA, coding)
 
 	coder.Coder_run()
@@ -59,11 +67,11 @@ func main() {
 
 	f1, _ := os.Stat(os.Args[1])
 	f2, _ := os.Stat(os.Args[2])
+	fmt.Println(input, output, coding)
 	fmt.Println("Rozmiar Wejścia:", f1.Size())
 	fmt.Println("Rozmiar Wyjścia:", f2.Size())
 	fmt.Println("Stopień kompresji: ", float64(100.0*(1.0-float64(f2.Size())/float64(f1.Size()))))
 	coder.Coder_scanFile(os.Args[1])
 	coder.Coder_scanFile(os.Args[2])
 
-	// coder.Coder_avgCodingLenght()
 }

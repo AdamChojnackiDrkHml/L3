@@ -1,0 +1,10 @@
+[./build/coder/coder data/input/SampleJPGImage_1mbmb.jpg data/output/test]
+532818
+data/input/SampleJPGImage_1mbmb.jpg data/output/test 0
+Rozmiar Wejścia: 1033414
+Rozmiar Wyjścia: 1855863
+Stopień kompresji:  -79.58562589630101
+ENTROPIA:  7.961365689841874
+ENTROPIA:  6.186758347839758
+DIFF START:
+DIFF END

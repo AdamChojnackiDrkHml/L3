@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println(os.Getwd())
+	// fmt.Println(os.Getwd())
 	var readerA *reader.Reader
 	var writerA *writer.Writer
 	fmt.Println(os.Args)

@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/adam/Dokumenty/Github/L3'
+make: Entering directory '/home/adam/Documents/Github/L3'
 go build -o build/coder/coder cmd/coderMain/coderMain.go
 go build -o build/decoder/decoder cmd/decoderMain/decoderMain.go
-make: Leaving directory '/home/adam/Dokumenty/Github/L3'
+make: Leaving directory '/home/adam/Documents/Github/L3'
  
