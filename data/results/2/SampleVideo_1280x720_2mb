@@ -1,0 +1,11 @@
+codings 2
+[./build/coder/coder data/input/SampleVideo_1280x720_2mb.mp4 data/output/test 2]
+1063702
+data/input/SampleVideo_1280x720_2mb.mp4 data/output/test 2
+Rozmiar Wejścia: 2107842
+Rozmiar Wyjścia: 3125827
+Stopień kompresji:  -48.29512838248786
+ENTROPIA:  7.997245207933058
+ENTROPIA:  7.813215519870888
+DIFF START:
+DIFF END

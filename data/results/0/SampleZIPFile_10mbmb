@@ -1,0 +1,11 @@
+codings 0
+[./build/coder/coder data/input/SampleZIPFile_10mbmb.zip data/output/test 0]
+4945075
+data/input/SampleZIPFile_10mbmb.zip data/output/test 0
+Rozmiar Wejścia: 10503575
+Rozmiar Wyjścia: 19450697
+Stopień kompresji:  -85.1816833792304
+ENTROPIA:  7.999115565418477
+ENTROPIA:  6.091452040392312
+DIFF START:
+DIFF END

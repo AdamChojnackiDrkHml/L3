@@ -1,0 +1,11 @@
+codings 2
+[./build/coder/coder data/input/Sample-png-image-1mb.png data/output/test 2]
+562323
+data/input/Sample-png-image-1mb.png data/output/test 2
+Rozmiar Wejścia: 1068158
+Rozmiar Wyjścia: 1587592
+Stopień kompresji:  -48.62894815186518
+ENTROPIA:  7.990159064221119
+ENTROPIA:  7.824092460138562
+DIFF START:
+DIFF END

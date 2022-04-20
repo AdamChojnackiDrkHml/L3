@@ -1,0 +1,11 @@
+codings 2
+[./build/coder/coder data/input/pan-tadeusz-czyli-ostatni-zajazd-na-litwie.txt data/output/test 2]
+109207
+data/input/pan-tadeusz-czyli-ostatni-zajazd-na-litwie.txt data/output/test 2
+Rozmiar Wejścia: 482542
+Rozmiar Wyjścia: 289752
+Stopień kompresji:  39.95299890993944
+ENTROPIA:  5.039221909655782
+ENTROPIA:  7.831891026409315
+DIFF START:
+DIFF END

@@ -1,0 +1,11 @@
+codings 1
+[./build/coder/coder pkg/reader/reader.go data/output/test 1]
+1355
+pkg/reader/reader.go data/output/test 1
+Rozmiar Wejścia: 3490
+Rozmiar Wyjścia: 2429
+Stopień kompresji:  30.401146131805156
+ENTROPIA:  4.9683090477951595
+ENTROPIA:  7.598743410796526
+DIFF START:
+DIFF END

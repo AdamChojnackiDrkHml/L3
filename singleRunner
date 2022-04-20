@@ -2,17 +2,16 @@
 
 make
 
+f=$1
 codings=("0" "1" "2" "3")
-
+Name=$(basename $f)
 for i in "${codings[@]}"; do
-    for f in data/input/*; do
-        Name=$(basename $f)
+  
         echo "codings $i" > data/results/${i}/${Name%.*}
-        ./build/coder/coder data/input/$Name data/output/test $i >> data/results/${i}/${Name%.*}
+        ./build/coder/coder $f data/output/test $i >> data/results/${i}/${Name%.*}
         ./build/decoder/decoder data/output/test data/outputOutput/$Name
         echo "DIFF START:" >> data/results/${i}/${Name%.*}
-        diff data/input/$Name data/outputOutput/$Name >> data/results/${i}/${Name%.*}
+        diff $f data/outputOutput/$Name >> data/results/${i}/${Name%.*}
         echo "DIFF END" >> data/results/${i}/${Name%.*}
 
-    done
 done

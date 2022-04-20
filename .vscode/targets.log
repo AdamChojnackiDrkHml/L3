@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Apr 19 22:29:10 2022
+# Make data base, printed on Wed Apr 20 08:39:25 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/adam/.gtkrc:/home/adam/.config/gtkrc
 # environment
 UUID = 44db3c14-bb9d-4e5b-98e0-67390a2dcca0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c56603f6-96d2-4932-acd2-1c6e11837462.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8dbd6d95-6417-46a8-9264-80de920f8977.sock
 # environment
 LC_NAME = pl_PL.UTF-8
 # environment
@@ -107,13 +107,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 964
+VSCODE_PID = 988
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/adam-virtualbox:@/tmp/.ICE-unix/596,unix/adam-virtualbox:/tmp/.ICE-unix/596
+SESSION_MANAGER = local/adam-virtualbox:@/tmp/.ICE-unix/610,unix/adam-virtualbox:/tmp/.ICE-unix/610
 # automatic
 *F = $(notdir $*)
 # environment
@@ -181,7 +181,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 480
+SYSTEMD_EXEC_PID = 489
 # environment
 DISPLAY = :0
 # environment
@@ -279,8 +279,8 @@ cleanD:
 #  recipe to execute (from 'Makefile', line 24):
 	@rm build/decoder/* 
 
- 
 buildD:
+ 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -402,6 +402,6 @@ cleanO:
 # strcache performance: lookups = 61 / hit rate = 52%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=0/61=0%
-# Finished Make data base on Tue Apr 19 22:29:10 2022
+# Finished Make data base on Wed Apr 20 08:39:25 2022
 
  

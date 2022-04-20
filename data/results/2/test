@@ -1,0 +1,11 @@
+codings 2
+[./build/coder/coder data/input/test data/output/test 2]
+5
+data/input/test data/output/test 2
+Rozmiar Wejścia: 7
+Rozmiar Wyjścia: 12
+Stopień kompresji:  -71.42857142857142
+ENTROPIA:  1.8423709931771088
+ENTROPIA:  3.418295834054489
+DIFF START:
+DIFF END

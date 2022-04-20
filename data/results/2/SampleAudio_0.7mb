@@ -1,0 +1,11 @@
+codings 2
+[./build/coder/coder data/input/SampleAudio_0.7mb.mp3 data/output/test 2]
+371604
+data/input/SampleAudio_0.7mb.mp3 data/output/test 2
+Rozmiar Wejścia: 725240
+Rozmiar Wyjścia: 1007351
+Stopień kompresji:  -38.898985163532075
+ENTROPIA:  7.852062845130409
+ENTROPIA:  7.8335266782468524
+DIFF START:
+DIFF END
